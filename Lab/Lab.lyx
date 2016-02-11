@@ -1,0 +1,2331 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{fancyhdr}%The first page setting
+\fancypagestyle{plain}
+{%
+  \fancyhf{} % clear all header and footer fields
+  \fancyhead[C]{
+Introduktion till git f\"or dataanalys
+  }
+
+}
+
+
+ 
+\end_preamble
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language swedish
+\language_package auto
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\branch Checkout
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\branch Malgrupp
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language swedish
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Datorlaboration:
+\begin_inset Newline newline
+\end_inset
+
+Introduktion till versionshantering med git och github 
+\begin_inset Newline newline
+\end_inset
+
+(för dataanalytiker och statistiker)
+\end_layout
+
+\begin_layout Author
+Måns Magnusson
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=TRUE,eval=TRUE,echo=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Global options
+\end_layout
+
+\begin_layout Plain Layout
+
+opts_chunk$set(comment='') 
+\end_layout
+
+\begin_layout Plain Layout
+
+options(digits = 5)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Förutsättningar 
+\begin_inset Branch Malgrupp
+status open
+
+\begin_layout Standard
+och målgrupp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Malgrupp
+status open
+
+\begin_layout Subsection
+Målgrupp
+\end_layout
+
+\begin_layout Standard
+Målgruppen för denna laboration är statistiker och dataanalytiker som programmer
+ar, hanterar data och/eller skriver rapporter.
+ Ingen tidigare erfarenhet av versionshantering krävs och laborationen ska
+ fungera oavsett operativsystem.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Mjukvara
+\end_layout
+
+\begin_layout Standard
+För att kunna genomföra denna laboration (och använda git framöver) behövs
+ versionshanteringsverktyget git.
+ För att underlätta arbetet med git rekommenderas också det grafiska gränsnittet
+ SourceTree.
+ SourceTree fungerar oavsett operativsystem eller program, således fungerar
+ det lika bra att versionshantera SAS eller SPSS-kod som att versionshantera
+ R-kod eller rapporter.
+ Programmen är gratis och bygger på öppen källkod.
+\end_layout
+
+\begin_layout Enumerate
+git: Det program som används för att versionhantera filer.
+ Git går också att använda direkt från terminalen/kommandotolken för mer
+ avancerade användare.
+ Ladda ned och installera härifrån:
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "https://git-scm.com/"
+target "https://git-scm.com/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+SourceTree: Grafiskt gränssnitt till git som gör det bekvämare och enklare
+ att arbeta med git.
+ Ladda ned och installera härifrån:
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "https://www.sourcetreeapp.com/"
+target "https://www.sourcetreeapp.com/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+R-Studio: För de som arbetar med R i R-Studio går det också att använda
+ R-Studio som grafiskt gränssnitt mot git.
+ Dock klarar inte R-Studio (i dagsläget) att hantera 
+\begin_inset Quotes sld
+\end_inset
+
+branch
+\begin_inset Quotes srd
+\end_inset
+
+ och 
+\begin_inset Quotes sld
+\end_inset
+
+merge
+\begin_inset Quotes srd
+\end_inset
+
+ fullt ut.
+ Ladda ned och installera härifrån (kräver R):
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "https://www.rstudio.com/"
+target "https://www.rstudio.com/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+github account
+\end_layout
+
+\begin_layout Standard
+Utöver mjukvaran ovan behövs också ett användarnamn på github.com för att
+ arbeta med git remote repositorys.
+ Skapa gratis ett konto på 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "github.com"
+target "https://www.github.com/"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Section
+Grundläggande git
+\end_layout
+
+\begin_layout Standard
+Git är ett system för att versionhantera filer och förenkla samarbete när
+ det gäller kod och filer i projekt.
+ Det är gjort för att vara snabbt, distribuerat och ta minimalt med utrymme.
+ För att versionhantera ett projekt beöver vi först skapa ett repository
+ i git.
+\end_layout
+
+\begin_layout Subsection
+Skapa ett repository
+\end_layout
+
+\begin_layout Standard
+Det mest grundläggande enheten i git är ett 
+\begin_inset Quotes sld
+\end_inset
+
+repository
+\begin_inset Quotes srd
+\end_inset
+
+ eller kortare 
+\begin_inset Quotes sld
+\end_inset
+
+repo
+\begin_inset Quotes srd
+\end_inset
+
+.
+ Det är en samling med filer som ingår i ett projekt, som kodfiler, data
+ och rapporttexter.
+ Exakt vilken omfattning ett repo ska ha är inte helt klart, men ofta utgörs
+ ett repo av ett projekt, en samling kod (exempelvis i form av ett R paket)
+ eller ett dataset med tillhörande kod.
+\end_layout
+
+\begin_layout Standard
+För att skapa ett nytt repo: 
+\end_layout
+
+\begin_layout Enumerate
+Starta SourceTree
+\end_layout
+
+\begin_layout Enumerate
+Klicka på 
+\series bold
++ New repository
+\series default
+ 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ 
+\series bold
+Create local repository
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Images/NewRepo1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vi skapar nu ett lokalt repo, d.v.s.
+ det kommer just nu bara finnas på din egen dator (vi kommer gå in på s.k.
+ remote repositorys senare).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Skriv in var du vill ha ditt lokala repo.
+ Namnet på ditt repo kommer vara den mapp du skapar repot i.
+ Nedan är ett exempel på att jag skapar ett nytt repo som ligger på skrivbordet
+ i mappen MittRepo och som därför också heter MittRepo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Images/NewRepo2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har du skapat ditt första egna repo som dyker upp i SourceTrees förstasida.
+ För att börja arbeta med filerna i repot, dubbelklicka på det nya repot.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Images/NewRepo3.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Lägga till filer i repot (Add)
+\end_layout
+
+\begin_layout Standard
+Nu har vi skapat ett helt nytt repo, lokalt på din dator.
+ Nu är det dags att lägga till de filer vi vill versionshantera.
+ Det finns tre stycken exempelfiler som vi kommer använda i följande exempel.
+ Dessa filer finns att ladda ned från github 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "https://github.com/MansMeg/GitIntro/tree/master/Lab/example_files"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Standard
+Dessa filer kopierar jag till den mapp som utgör mitt nyligen skapade repo.
+ Filen 
+\family typewriter
+iris.csv
+\family default
+ ligger i en undermappen data.
+ I SourceTree borde det då se ut ungefär såhär:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/AddFiles1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vi ska nu lägga till dessa filer i vårt repo och börja versionhantera dem.
+\end_layout
+
+\begin_layout Enumerate
+Vi börjar med att markera vilka filer vi vill lägga till i repot.
+ Markera de filer du vill lägga till och klicka på 
+\series bold
+Add
+\series default
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/AddFiles1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Detta innebär att vi har markerat de filer vi vill lägga till i vårt repo.
+ Deta kallas att vi 
+\begin_inset Quotes sld
+\end_inset
+
+Stage
+\begin_inset Quotes srd
+\end_inset
+
+ de filer vi vill lägga till.
+ I denna labb kommer jag kalla detta för att markera filer för att lägga
+ till i repot.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nästa steg är att vi ska lägga till de filer vi markerat.
+ Detta gör vi med genom att göra en så kallad 
+\series bold
+Commit
+\series default
+.
+ En översättning av commit är fästa, vilket beskriver vad vi gör.
+ Vi fäster dessa filer (och framöver våra förändringar) i vårt repo.
+ 
+\begin_inset Newline newline
+\end_inset
+
+När vi klickar på 
+\series bold
+Commit
+\series default
+ får då upp att vi ska ange ett 
+\begin_inset Quotes sld
+\end_inset
+
+commit message
+\begin_inset Quotes srd
+\end_inset
+
+.
+ Detta är ett meddelande vi kommer gå in på mer i detalj senare.
+ Nu anger vi 
+\begin_inset Quotes sld
+\end_inset
+
+Add initial files
+\begin_inset Quotes srd
+\end_inset
+
+ som meddelande.
+ Klicka sedan på knappen 
+\series bold
+Commit
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/AddFiles2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har vi skapat vårt första repo och lagt till de tre filer vi vill versionhant
+era.
+ I SourceTree ser det nu ut som filerna saknas, det beror på att det inte
+ finns några förändringar i filerna i vårt repo.
+ Gå in i den mapp du versionshanterat (MittRepo) och titta.
+ Filerna finns kvar.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/AddFiles3.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Vi kan vilja se vilka förändringar vi gjort (för spårbarheten).
+ För att göra det klickar vi på 
+\begin_inset Quotes sld
+\end_inset
+
+klockan
+\begin_inset Quotes srd
+\end_inset
+
+ i vänstra övre hörnet.
+ Då får vi fram historiken över vilka förändringar (commits) vi gjort i
+ våra filer.
+ I denna vy kan vi se vilka tidigare commits som gjorts, när de gjordes
+ och av vem de gjordes.
+ Nu är det bara en commit gjord, men längre fram kommer vi se hela historiken
+ med alla våra förändringarvi gjort.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/AddFiles4.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Stage och Commit
+\end_layout
+
+\begin_layout Standard
+Versionshantering med git handlar om att vi gör förändringar i våra filer
+ och vi sedan vill lägga till dessa förändringar.
+ Som ett första steg ska vi ändra i en av våra versionshanterade filer.
+ Vi ska lägga till en rad i example_R.R där vi läser in csv-filen iris.csv.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Öppna filen 
+\family typewriter
+example_R.R
+\family default
+ (om du inte har R kan du göra det med en vanlig texteditor) och lägg till
+ följande rad kod: 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=FALSE,eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+my_data <- read.csv("data/iris.csv")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Spara sedan filen.
+ Då borde det se ut på följande sätt i SourceTree:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Commit1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Filen har nu dykt upp i git och vi ser i grönt exakt vilket tillägg som
+ gjorts i filen.
+ Detta beror på att git jämför filerna med den senaste commiten och ser
+ nu en skillnad.
+\end_layout
+
+\begin_layout Enumerate
+Precis som tidigare ska vi nu lägga till denna förändring, först markerar
+ vi denna förändring med 
+\series bold
+Add
+\series default
+.
+ Då kommer vi flytta filen från 
+\begin_inset Quotes sld
+\end_inset
+
+unstaged files
+\begin_inset Quotes srd
+\end_inset
+
+ (ej markerade filer) till 
+\begin_inset Quotes sld
+\end_inset
+
+staged files
+\begin_inset Quotes srd
+\end_inset
+
+ (markerade filer).
+ Det innebär att vi markerar att vi vill lägga till denna förändring i vårt
+ repo.
+\end_layout
+
+\begin_layout Enumerate
+Nästa steg är att lägga till denna förändring i vårt repo genom att commita
+ de förändringar vi gjort.
+ Klicka på 
+\series bold
+Commit
+\series default
+ och fyll i ett commit message.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Commit2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har vi gjort en förändring och commitat in denna förändring i vårt repo.
+\end_layout
+
+\begin_layout Standard
+På detta sätt kan vi hantera förändringar av filer.
+ Vi kan självklart också lägga till nya filer (som tidigare), flytta filer
+ och ta bort filer.
+ Nu ska vi se hur det fungerar.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Vi ska nu pröva att flytta vår fil 
+\family typewriter
+example_R.R
+\family default
+ till en mapp 
+\begin_inset Quotes sld
+\end_inset
+
+kod
+\begin_inset Quotes srd
+\end_inset
+
+ i vårt repo och ta bort vår fil 
+\family typewriter
+example_text.txt
+\family default
+ fil.
+ När detta är gjort borde det då se ut på följande sätt i SourceTree:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Commit3.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Precis som tidigare måste vi markera vilka förändringar vi vill 
+\begin_inset Quotes sld
+\end_inset
+
+stage to commit
+\begin_inset Quotes srd
+\end_inset
+
+.
+ Markera alla tre förändringar som git har identifierat.
+ När vi markerar dessa förändringar förstår git att vi genom att ta bort
+ en fil (
+\family typewriter
+example_R.R
+\family default
+) och skapa samma fil igen, bara flyttar filen mellan två olika mappar.
+ När vi har markerat dessa förändringar kan vi också commita dessa två förändrin
+gar till vårt repo med 
+\series bold
+Commit
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Commit4.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Det är inte alltid vi vill lägga till alla förändringar i en enskild fil
+ i ett commit.
+ Vi kanske har löst två buggar på en gång men vill commita in dem som två
+ commits.
+ Det är för dessa situationer som vi har riktig nytta av att använda 
+\begin_inset Quotes sld
+\end_inset
+
+Stage
+\begin_inset Quotes srd
+\end_inset
+
+ och 
+\begin_inset Quotes sld
+\end_inset
+
+Unstage
+\begin_inset Quotes srd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Lägg till följande kod i vår R-fil och spara filen.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<prompt=FALSE,eval=FALSE,echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# This is a comment to the first commit
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# This is a comment to the second commit
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Vi ska nu lägga till dessa kommentarer i vårt repo som två commits, där
+ vi commitar in ett par rader i taget.
+ Vi gör det genom att markera de rader vi vill commita i den högra vyn.
+ Därefter klickar vi på 
+\begin_inset Quotes sld
+\end_inset
+
+Stage lines
+\begin_inset Quotes srd
+\end_inset
+
+.
+ På detta sätt kan vi välja ut vilka rader vi vill markera för att commita
+ in i repot.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/PartCommit1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Commita nu de rader som du markerade ovan.
+ När detta är gjort återstår den del av filen som vi inte redan markerat
+ och commita in.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/PartCommit2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Commita in den sista kommentaren i repot.
+\end_layout
+
+\begin_layout Subsubsection
+Commits och commit messages
+\end_layout
+
+\begin_layout Standard
+När det gäller exakt vad som bör ingå i ett givet commit beror det på från
+ person till person.
+ En bra rutin är att commita en bit kod, data eller text den lilla delen
+ är 
+\begin_inset Quotes sld
+\end_inset
+
+klar
+\begin_inset Quotes srd
+\end_inset
+
+, oavsett om det som korrigerats är ett enskilt tecken som orsakade en bugg
+ eller om det är en helt ny funktion.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+OBS!
+\series default
+ Commita inte in en del kod som inte fungerar.
+\end_layout
+
+\begin_layout Standard
+De meddelanden som anges till repektive commit är viktiga.
+ Det är enkelt att efter tag bara skriva 
+\begin_inset Quotes sld
+\end_inset
+
+uppdateringar
+\begin_inset Quotes srd
+\end_inset
+
+, vilket är intetsägande både för sig själv eller andra.
+ En best practice är att tänka att ett commitmeddelande ska kunna fortfölja
+ följande mening:
+\end_layout
+
+\begin_layout Quote
+If applied, this commit will 
+\series bold
+[your commit message here]
+\end_layout
+
+\begin_layout Subsubsection
+Commit hash
+\end_layout
+
+\begin_layout Standard
+Varje commit får en hash-kod.
+ Denna hashkod är unik för varje commit och blir på så sätt ett fingeravtryck
+ för exakt hur koden såg ut vid exakt denna tidpunkt.
+ Det är inte ovanligt att program som körs loggar commit hashen i rapporter
+ eller dylikt för att veta exakt hur koden såg ut när analysen gjordes.
+ 
+\end_layout
+
+\begin_layout Standard
+För att se historiken över vilka commits som finns i vårt repo, klicka på
+ klockan i övre vänstra hörnet i SourceTree.
+ Då kan vi se de commits vi gjort och deras commit hash (markerad nedan).
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Commit5.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Reset unstaged changes
+\end_layout
+
+\begin_layout Standard
+Att kunna versionshantera kod är bra, men vi vill också kunna ångra förändringar
+ vi gjort och sparat i våra versionhanterade filer.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Gå in i 
+\family typewriter
+example_R.R
+\family default
+ och lägg till en rad kod med text.
+ Det spelar ingen roll vad det är.
+ Spara filen.
+\end_layout
+
+\begin_layout Enumerate
+Nu kan vi se i SourceTree att det skett en förändring i vår fil som vi inte
+ vill ha kvar.
+ Markera filen i SourceTree och klicka på 
+\series bold
+Reset
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Revert1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Vi kan nu markera de filer vi vill återställa till den senaste commiten
+ vi gjort.
+ Det som är markerat i grönt är det vi lagt till och som nu kommer tas bort.
+ Klicka 
+\series bold
+Discard changes
+\series default
+, och sedan 
+\series bold
+Ok
+\series default
+.
+ Nu har vi återställt den förändring vi gjort (och sparat över den gamla
+ filen med).
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Revert2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Diff
+\end_layout
+
+\begin_layout Standard
+Nu när vi lagt till och hanterat våra filer kan det vara intressant att
+ jämföra olika commits.
+ Exempelvis om vi vill se vilka förändringar vi gjort totalt sett över flera
+ commits.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Öppna filen 
+\family typewriter
+example_R.R
+\family default
+ och ta bort raden med 
+\family typewriter
+print(
+\begin_inset Quotes sld
+\end_inset
+
+Hello git!
+\begin_inset Quotes srd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
+Spara, markera och commita denna förändring i repot.
+\end_layout
+
+\begin_layout Enumerate
+Nu kan vi markera den sista commiten och den tredje commit som vi gjorde.
+ Då kan vi se den totala skillnaden i menyn nere till höger.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Diff1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Tags
+\end_layout
+
+\begin_layout Standard
+Vi kan enkelt spåra förändringar mellan två commits, men ibland vill vi
+ märka ut en enskild commit extra (ex.
+ för att vi har en given version).
+ Då kan vi lägga till en tag till en enskild commit.
+ Detta är ett sätt för att märka upp de större stegen som gjorts i ett projekt.
+ 
+\end_layout
+
+\begin_layout Standard
+För att lägga till en tag klickar vi på 
+\series bold
+Tag
+\series default
+.
+ Skriv namnet på taggen och klicka på 
+\series bold
+Add
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Tag1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+.gitignore
+\end_layout
+
+\begin_layout Standard
+Till sist kan det vara så att vissa delar i ett repo vill vi inte att git
+ ska bevaka.
+ För detta finns filen 
+\family typewriter
+.gitignore
+\family default
+.
+\end_layout
+
+\begin_layout Enumerate
+Klicka på Repository 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Repository settings...
+ 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Advanced 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Edit
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/GitIgnore1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+En vanlig textfil öppnas då och då kan vi lägga till vilka sorters filer
+ som ska ignoreras.
+ Lägg till: 
+\family typewriter
+*.pdf
+\family default
+ Nu kommer alla pdf-filer att ignoreras.
+ På liknande sätt kan vi ignorera enskilda mappar.
+ Detta är bekvämt om vi har filer vi jobbar med med vi inte vill att git
+ ska bevaka.
+\end_layout
+
+\begin_layout Enumerate
+
+\family typewriter
+.gitignore
+\family default
+ kommer nu dyka upp som en fil i repot (det är bara en vanlig textfil).
+ 
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+Obs!
+\series default
+ committa inte in 
+\family typewriter
+.gitignore
+\family default
+ i repot.
+ Detta är en lokal fil som vi inte vill ska följa med repot utan som varje
+ användare av repot själv ska bestämma över.
+ Det enklaste är att lägga till 
+\family typewriter
+.gitignore
+\family default
+ i 
+\family typewriter
+.gitignore-
+\family default
+filen.
+\end_layout
+
+\begin_layout Section
+Remote repositories
+\end_layout
+
+\begin_layout Standard
+Fram till nu har vi fokuserat på lokal versionshantering.
+ Det fungerar bra om vi jobbar med ett eget projekt där vi inte samarbetar
+ med andra och ingen annan har behov av vår kod.
+ Vill vi däremot arbeta tillsammans med andra behöver vi ett remote repository
+ (kallas också globalt repo i denna text) som lagrar våra commit på ett
+ centralt plats och som andra kan komma åt.
+ Här kommer vi använda github.com som exempel, men det finns andra möjligheter
+ som BitBucket eller GitLab.
+ I praktiken är det bara url-adressen till det globala repot som skiljer
+ sig.
+\end_layout
+
+\begin_layout Subsection
+Skapa ett globalt (remote) repository
+\end_layout
+
+\begin_layout Standard
+Vi gör detta på github, men exakt hur vi skapar ett remote repo är olika
+ för olika tjäsnter som github, Bitbucket och GitLab.
+\end_layout
+
+\begin_layout Enumerate
+Logga in på github.com
+\end_layout
+
+\begin_layout Enumerate
+Skapa ett nytt repo
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Clone1.png
+	lyxscale 40
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nästa steg är att ge repot ett namn, beskriva det kort och ange om det ska
+ vara publikt (öppet för alla) eller privat (bara de du bestämmer kommer
+ åt koden).
+ Skapa nu ett öppet repo.
+ Ange att repot ska skapas med en README.
+ Klicka på 
+\series bold
+Create repository
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Clone2.png
+	lyxscale 40
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har du skapat ett remote repository på github.com.
+ Det borde se ut ungefär såhär:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Clone3.png
+	lyxscale 40
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Vi har nu skapat ett remote repo på github.
+ Men eftersom git alltid arbetar lokalt behöver vi klona detta repo till
+ vår egen dator.
+ Det gör vi i SourceTreegenom att välja 
+\series bold
+Clone from URL
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/NewRepo1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+För att klona ett remote repo behöver vi ange den sökväg (URL) till vårt
+ remote repo samt var vi ska klona detta repo (på vår egen dator).
+ Precis som tidigare behöver vi ange en mapp på vår dator som också blir
+ namnet på vårt repo.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Clone4.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har vi klonat vårt remote repo så det också finns på vår egen dator.
+\end_layout
+
+\begin_layout Subsection
+Push
+\end_layout
+
+\begin_layout Standard
+När vi arbetar med vårt gemensamma repo arbetar vi på samma sätt som när
+ vi har ett helt lokalt repo.
+ När vi är klara och vill dela med oss av vad vi gjort använder vi oss av
+ funktionen 
+\series bold
+Push
+\series default
+.
+\end_layout
+
+\begin_layout Enumerate
+Markera och committa in samma tre filer som du lade till i det lokala repot
+ vi skapade tidigare.
+ Filerna går att ladda ned från github 
+\series bold
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "[här]"
+target "https://github.com/MansMeg/GitIntro/tree/master/Lab/example_files"
+
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Push1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Efter att vi lagt till filerna ska vi nu pusha dessa filer till vårt remote
+ repo (som andra kan komma åt).
+ När vi committar i ett remote repo kommer det automatiskt dyka upp en siffra
+ som anger hur många commits vårt lokala repo ligger 
+\begin_inset Quotes sld
+\end_inset
+
+före
+\begin_inset Quotes srd
+\end_inset
+
+ det globala repot.
+ Klicka 
+\series bold
+OK
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Push2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu kan vi titta på github igen och se att de nya filerna ligger på github
+ och kan användas av andra.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Push3.png
+	lyxscale 40
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Pull
+\end_layout
+
+\begin_layout Standard
+Om vi sitter med samma projekt och någon annan har pushat upp ny kod, data
+ eller text behöver vi hämta ned detta för att vi ska kunna fortsätta där
+ vår kollega slutade.
+ Detta gör vi med 
+\series bold
+Pull
+\series default
+.
+\end_layout
+
+\begin_layout Enumerate
+Låt oss börja med att ändra vår 
+\family typewriter
+README
+\family default
+ direkt på github.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Pull1.png
+	lyxscale 40
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu när vi har gjort en förändring direkt på github kan vi låtsas som att
+ detta är en förändring vår kollega gjort.
+ För att lägga till denna förändring klickar vi på 
+\series bold
+Pull
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Pull2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har vi uppdaterat vårt lokala git repo med de förändringar som vi lagt
+ till i det globala repot.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename images/Pull3.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Conflicts
+\end_layout
+
+\begin_layout Standard
+En av de största problemen med att arbeta med samma projekt flera personer
+ är att det finns en risk att vi gör förändringar i samma fil, på exakt
+ samma ställe.
+ Utan git vore detta en mardröm.
+ Nu ska vi se hur git löser dessa problem åt oss.
+\end_layout
+
+\begin_layout Enumerate
+Ändra 
+\begin_inset Quotes sld
+\end_inset
+
+Added some text
+\begin_inset Quotes srd
+\end_inset
+
+ i 
+\family typewriter
+README.md
+\family default
+ till 
+\begin_inset Quotes sld
+\end_inset
+
+Added some remote text på github
+\begin_inset Quotes srd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Utan att först klicka Pull, ändra på samma rad i det lokala repot 
+\family typewriter
+README.md
+\family default
+ till 
+\begin_inset Quotes sld
+\end_inset
+
+Added some local text
+\begin_inset Quotes srd
+\end_inset
+
+ och commita denna förändring.
+ Nu har vi skapat en konflikt - vi har ändrat på samma rad samtidigt både
+ i det globala och det lokala repot.
+ Vi ser nu att vi både ligger ett commit före och efter vårt remote repo
+ - git skapar två olika grenar.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Conflict1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+För att lösa vår konflikt måste vi först använda 
+\series bold
+Pull
+\series default
+ för att dra ned de commits i vårt remote repo som vi saknar lokalt.
+ Vi löser sedan alltid konflikter lokalt.
+ Klicka 
+\series bold
+OK
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Conflict2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu får vi en varning om att vi har en konflikt vi måste lösa lokalt.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Conflict3.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+När det skett en konflikt och vi använder Pull kommer vi få nya filer med
+ skillnaderna mellan filerna som konflikten gäller.
+ För att lösa vår konflikt går vi nu in i vår lokala fil där skillnaden
+ har markerats ut.
+ 
+\family typewriter
+HEAD
+\family default
+ anger hur vår fil såg ut lokalt och 
+\family typewriter
+====
+\family default
+ avgränsar den konflikt vi ha med vårt remote repo.
+ Vi får också veta exakt i vilken commit (hashen) som vi hade vår konflikt.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Conflict4.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu ändrar vi bara vår fil och väljer vilken version vi vill ha.
+ Vi kan också byta ut den rad konflikten handlar om mot en helt ny rad.
+ Sedan commitar vi in vår fil igen.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Conflict5.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har vi löst vår konflikt.
+ Vi kan nu pusha upp den commit som löste konflikten till vårt remote repo
+ med 
+\series bold
+Push
+\series default
+.
+ I SourceTree ser det ut som att vi slagit ihop de två olika grenar som
+ skapade konfilkten.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Conflict7.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Branch och merge
+\end_layout
+
+\begin_layout Standard
+Nu kommer vi in på lite mer avancerade delar i git, men som är av stor betydelse
+ för att kunna arbeta effektivt med kod, data och rapporter.
+ Särskilt i större projekt är detta av stor betydelse.
+\end_layout
+
+\begin_layout Standard
+Låt oss säga att vi arbetar med ett projekt där vi ska lägga till en ny
+ funktionalitet i ett skript eller lägga till en ny analys i en löpande
+ rapport.
+ I dessa fall vill vi kunna experimentera och pröva oss fram utan att vi
+ riskerar att förstöra något i den kod som vi redan har och vi vet fungerar.
+ Här kommer 
+\begin_inset Quotes sld
+\end_inset
+
+branches
+\begin_inset Quotes srd
+\end_inset
+
+ in.
+ Genom att skapa en branch, eller gren, i vårt repo kan vi arbeta vidare
+ i vårt repo utan att vi stör den 
+\begin_inset Quotes sld
+\end_inset
+
+huvudsakliga
+\begin_inset Quotes srd
+\end_inset
+
+ koden.
+ Denna 
+\begin_inset Quotes sld
+\end_inset
+
+huvudsakliga
+\begin_inset Quotes srd
+\end_inset
+
+ kod är i sig en branch som heter 
+\series bold
+master
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Om vi skapar en ny branch kan vi lägga till nya delar, när vi sedan är nöjda
+ med vårt tillägg kan vi sedan kombinera ihop vår utvecklingsgren med vår
+ huvudgren i repot, vår master branch.
+\end_layout
+
+\begin_layout Subsection
+Branch
+\end_layout
+
+\begin_layout Standard
+Initialt i vårt repo har vi alltid vår huvudgren master, eller master branch.
+ Det är bra att se master som den huvudsakliga grenen i repot.
+ En person som bara ska använda vår kod eller läsa vår rapport ska bara
+ behöva titta i repots master branch.
+ Alla andra grenar är till för de som arbetar i projektet och gör tillägg
+ till master branch.
+\end_layout
+
+\begin_layout Enumerate
+För att skapa en ny gren (branch) i vårt repo använder vi funktionen 
+\series bold
+Branch
+\series default
+.
+ Skapa en branch du kallar 
+\begin_inset Quotes sld
+\end_inset
+
+development
+\begin_inset Quotes srd
+\end_inset
+
+.
+ För att se vilka branches vi har i vårt repo kan vi använda den vänstra
+ vyn.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Branch1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har vi skapat en ny gren vi kallar 
+\begin_inset Quotes sld
+\end_inset
+
+development
+\begin_inset Quotes srd
+\end_inset
+
+ och den syns i den vänstra vyn.
+ Dubbelklicka på 
+\series bold
+development
+\series default
+ för att byta branch.
+ Ändra nu i vår R-fil och lägg till kommentaren som framgår nedan.
+ Commita in förändringen i development branch.
+ Det borde då se ut på följande sätt.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Branch2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Byt nu tillbaka till vår master branch.
+ Klicka på master i vänstervyn och committa in följande text i README.md.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Branch4.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu borde det se ut på följande sätt.
+ Under 
+\begin_inset Quotes sld
+\end_inset
+
+Graph
+\begin_inset Quotes srd
+\end_inset
+
+ kan vi också se en bild över de två grenarna vi nu har, development och
+ master.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Branch5.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Pröva att byta branch från development till master och vice versa.
+ Vad händer med filerna 
+\family typewriter
+README.md
+\family default
+ och 
+\family typewriter
+example_text.txt
+\family default
+ när vi byter branch?
+\end_layout
+
+\begin_layout Enumerate
+Som ett sista steg ska vi nu också pusha upp vår nya branch och våra commits
+ till vårt remote repo (så andra kan ta del av vad vi gjort).
+ Klicka i att du vill pusha båda våra branches och klicka 
+\series bold
+OK
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Branch6.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har vi pushat både master branch och development branch till vårt remote
+ repo.
+ Vi ser det genom att det finns en origin/development- och origin/master-indikat
+or.
+\end_layout
+
+\begin_layout Subsection
+Merge
+\end_layout
+
+\begin_layout Standard
+När vi arbetat klart med en enskild gren och vi vill lägga till denna gren
+ till vår huvudgren, master, använder vi Merge för att slå ihop grenar.
+ 
+\end_layout
+
+\begin_layout Enumerate
+För att slå ihop en gren behöver vi först aktivera den gren vi vill lägga
+ till en annan gren till.
+ Har vi arbetat i en developmentgren och vill lägga till detta arbete till
+ master ska vi aktivera huvudgrenen master.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Klicka nu på 
+\series bold
+Merge
+\series default
+.
+ Markera development branch (sista commiten) och klicka 
+\series bold
+Ok
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Merge1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har skillnaden mellan master och development grenarana lagts till i filerna
+ i master branch.
+ För att slutligen slå ihop grenarna behöver vi därför commita in dessa
+ skillnader i vår master branch.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Merge2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Commita in dessa förändringar och pusha sedan allt till vårt remote repo.
+ Då borde det se ut som nedan.
+ Vi ser att de två grenarna nu slagits ihop i vår master branch.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Merge5.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Branch Checkout
+status open
+
+\begin_layout Section
+Återvända till tidigare versioner - Checkout
+\end_layout
+
+\begin_layout Standard
+Vi har tidigare fokuserat mycket på grunderna i git, hur vi versionshanterar
+ och pushar vår kod till ett remote repo.
+ Vi har också tittat på hur vi kan arbeta med ett repo utan att stöka till
+ det för andra som vill arbeta med samma repo samtidigt.
+ Nu ska vi titta på hur vi kan ha nytta av den versionshantering vi gjort
+ för att återgå till tidigare versioner (tidigare commits).
+ Vi kan självklart också 
+\end_layout
+
+\begin_layout Enumerate
+Vill vi titta på tidigare versioner använder vi Checkout.
+ Gå tillbaka till vårt andra commit (med meddelande 
+\begin_inset Quotes sld
+\end_inset
+
+init files
+\begin_inset Quotes srd
+\end_inset
+
+) och klicka på 
+\series bold
+Checkout
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/CheckoutState1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+När vi checkat ut detta commit indikeras att vi är på denna position i vårt
+ repo med en tag som heter HEAD.
+ Titta runt i filerna i repot och kontrollera att alla de förändringar vi
+ commitat in inte finns i dessa filer.
+\end_layout
+
+\begin_layout Enumerate
+För att återgå till vårt arbete kan vi sedan bara checka ut vårt sista commit
+ på ett liknande sätt.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korrigera fel i repot - Revert och Reset
+\end_layout
+
+\begin_layout Standard
+Om vi upptäcker felaktigheter vi har commitat in i vår kod kan det vara
+ så att vi vill 
+\begin_inset Quotes sld
+\end_inset
+
+ta bort
+\begin_inset Quotes srd
+\end_inset
+
+ enskilda commits.
+ Eftersom git är gjort för att det ska vara svårt att ta bort kod kan det
+ vara lite krångligt.
+ Vill vi ta bort det vi gjort i en eller flera commits finns det två vägar
+ att gå.
+ Har vi inte pushat upp det vi commit kan vi använda reset.
+ Har vi däremot pushat upp våra commits till vårt remote repo bör vi istället
+ använda revert.
+ Revert skapar en ny commit som återställer tidigare commits i en ny commit.
+ Reset däremot tar bort enskilda commits.
+\end_layout
+
+\begin_layout Enumerate
+Börja med att ta bort filen 
+\family typewriter
+iris.csv
+\family default
+ från MittRemoteRepo och committa denna förändring.
+\end_layout
+
+\begin_layout Enumerate
+Som ett första steg ska vi nu återställa detta fel med Revert.
+ Högerklicka på det commit vi vill ta bort/återställa och välj 
+\series bold
+Reverse commit...
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Reset2.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har en ny commit skapats som återställer den eller de commits vi valt
+ att återställa.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Reset3.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Vi kan också ta bort enskilda commits helt med reset.
+ Klicka på den commit 
+\shape italic
+du vill återställa till
+\shape default
+.
+ Exempelvis 
+\begin_inset Quotes sld
+\end_inset
+
+Merge branch 'development'
+\begin_inset Quotes srd
+\end_inset
+
+.
+ Klicka på 
+\series bold
+Reset master to this commit
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Reset4.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Nu har du tagit bort dessa commits.
+ Kvar kommer de förändringar som gjorts i dessa två commits finnas kvar.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Reset5.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
