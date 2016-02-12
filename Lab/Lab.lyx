@@ -109,7 +109,7 @@ Introduktion till versionshantering med git och github
 \begin_inset Newline newline
 \end_inset
 
-(för dataanalytiker och statistiker)
+(för analytiker och statistiker)
 \end_layout
 
 \begin_layout Author
@@ -217,14 +217,15 @@ För att kunna genomföra denna laboration (och använda git framöver) behövs
  versionshanteringsverktyget git.
  För att underlätta arbetet med git rekommenderas också det grafiska gränsnittet
  SourceTree.
- SourceTree fungerar oavsett operativsystem eller program, således fungerar
- det lika bra att versionshantera SAS eller SPSS-kod som att versionshantera
- R-kod eller rapporter.
+ Git och SourceTree fungerar oavsett operativsystem eller program vi arbetar
+ med.
+ Således fungerar det lika bra att versionshantera SAS eller SPSS-kod som
+ att versionshantera R-kod eller rapporter.
  Programmen är gratis och bygger på öppen källkod.
 \end_layout
 
 \begin_layout Enumerate
-git: Det program som används för att versionhantera filer.
+Git: Det program som används för att versionhantera filer.
  Git går också att använda direkt från terminalen/kommandotolken för mer
  avancerade användare.
  Ladda ned och installera härifrån:
@@ -305,13 +306,13 @@ target "https://www.rstudio.com/"
 \end_layout
 
 \begin_layout Subsection
-github account
+GitHub account
 \end_layout
 
 \begin_layout Standard
-Utöver mjukvaran ovan behövs också ett användarnamn på github.com för att
- arbeta med git remote repositorys.
- Skapa gratis ett konto på 
+Utöver mjukvaran ovan behövs också ett konto på github.com för att arbeta
+ med git remote repositories.
+ Skapa ett gratis konto på 
 \series bold
 \color blue
 
@@ -335,9 +336,9 @@ Grundläggande git
 \begin_layout Standard
 Git är ett system för att versionhantera filer och förenkla samarbete när
  det gäller kod och filer i projekt.
- Det är gjort för att vara snabbt, distribuerat och ta minimalt med utrymme.
- För att versionhantera ett projekt beöver vi först skapa ett repository
- i git.
+ Det är gjort för att vara snabbt och stabilt.
+ För att börja versionhantera ett projekt med git behöver vi först skapa
+ ett repository.
 \end_layout
 
 \begin_layout Subsection
@@ -353,7 +354,7 @@ repository
 \begin_inset Quotes srd
 \end_inset
 
- eller kortare 
+, eller kortare 
 \begin_inset Quotes sld
 \end_inset
 
@@ -362,11 +363,21 @@ repo
 \end_inset
 
 .
- Det är en samling med filer som ingår i ett projekt, som kodfiler, data
- och rapporttexter.
- Exakt vilken omfattning ett repo ska ha är inte helt klart, men ofta utgörs
- ett repo av ett projekt, en samling kod (exempelvis i form av ett R paket)
- eller ett dataset med tillhörande kod.
+ Det enklast är att se ett repo som en mapp på datrn och allt vi lägger
+ i mappen versionhanteras av git.
+ Mappen kan innehålla vilka filer vi vill, som kod, data och rapporter.
+ Git är dock smidigast att hantera textfiler som programkod, data i csv-format
+ och rapporter i text eller markdownformat.
+ Exakt vilken omfattning ett repo ska ha är inte helt uppenbart, men ofta
+ utgörs ett repo av ett 
+\begin_inset Quotes sld
+\end_inset
+
+projekt
+\begin_inset Quotes srd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -405,16 +416,16 @@ Create local repository
 \end_layout
 
 \begin_layout Standard
-Vi skapar nu ett lokalt repo, d.v.s.
- det kommer just nu bara finnas på din egen dator (vi kommer gå in på s.k.
- remote repositorys senare).
+Vi har nu skapat ett lokalt repo, d.v.s.
+ repot kommer bara finnas på din egen dator (vi kommer gå in på s.k.
+ remote repositories senare).
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
 Skriv in var du vill ha ditt lokala repo.
- Namnet på ditt repo kommer vara den mapp du skapar repot i.
- Nedan är ett exempel på att jag skapar ett nytt repo som ligger på skrivbordet
+ Namnet på ditt repo kommer vara den mappen du skapar repot i.
+ Nedan är ett exempel på att skapa ett nytt repo som ligger på skrivbordet
  i mappen MittRepo och som därför också heter MittRepo.
 \end_layout
 
@@ -433,8 +444,9 @@ Skriv in var du vill ha ditt lokala repo.
 
 \end_deeper
 \begin_layout Enumerate
-Nu har du skapat ditt första egna repo som dyker upp i SourceTrees förstasida.
- För att börja arbeta med filerna i repot, dubbelklicka på det nya repot.
+Nu har vi skapat ett första repo som dyker upp på SourceTrees förstasida.
+ För att börja arbeta med filerna i repot, dubbelklicka på MittRepo (eller
+ det namn du angav).
 \end_layout
 
 \begin_deeper
@@ -457,9 +469,10 @@ Lägga till filer i repot (Add)
 
 \begin_layout Standard
 Nu har vi skapat ett helt nytt repo, lokalt på din dator.
- Nu är det dags att lägga till de filer vi vill versionshantera.
+ Men än har vi inte börjat versionhantera några filer.
+ Nu måste vi lägga till de filer vi vill versionshantera.
  Det finns tre stycken exempelfiler som vi kommer använda i följande exempel.
- Dessa filer finns att ladda ned från github 
+ Dessa filer går att ladda ned från github 
 \series bold
 \color blue
 
@@ -503,7 +516,7 @@ Vi ska nu lägga till dessa filer i vårt repo och börja versionhantera dem.
 \end_layout
 
 \begin_layout Enumerate
-Vi börjar med att markera vilka filer vi vill lägga till i repot.
+Vi börjar med att markera vilka filer vi vill börja versionhantera.
  Markera de filer du vill lägga till och klicka på 
 \series bold
 Add
@@ -526,8 +539,9 @@ Add
 \end_layout
 
 \begin_layout Standard
-Detta innebär att vi har markerat de filer vi vill lägga till i vårt repo.
- Deta kallas att vi 
+Detta innebär att vi har markerat de filer vi vill lägga till i vårt repo
+ och börja versionhantera.
+ Det vi gör är att vi flyttar filerna till 
 \begin_inset Quotes sld
 \end_inset
 
@@ -535,22 +549,29 @@ Stage
 \begin_inset Quotes srd
 \end_inset
 
- de filer vi vill lägga till.
- I denna labb kommer jag kalla detta för att markera filer för att lägga
- till i repot.
+, vilket kan ses som att vi markerar dessa filer för att sedan, i nästa
+ steg, lägga till dem i vårt repo som en commit.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
 Nästa steg är att vi ska lägga till de filer vi markerat.
- Detta gör vi med genom att göra en så kallad 
+ Detta gör vi med genom att göra en 
 \series bold
 Commit
 \series default
 .
- En översättning av commit är fästa, vilket beskriver vad vi gör.
- Vi fäster dessa filer (och framöver våra förändringar) i vårt repo.
- 
+ När vi gör en commit 
+\begin_inset Quotes sld
+\end_inset
+
+fryser
+\begin_inset Quotes srd
+\end_inset
+
+ vi de förändringar vi gjort i en fil i vårt repo.
+ I detta fall har vi lagt till nya filer så vi fryser filerna som de såg
+ ut när vi lade till dem i vårt repo.
 \begin_inset Newline newline
 \end_inset
 
@@ -600,11 +621,12 @@ Commit
 \end_deeper
 \begin_layout Enumerate
 Nu har vi skapat vårt första repo och lagt till de tre filer vi vill versionhant
-era.
+era med vårt första commit.
  I SourceTree ser det nu ut som filerna saknas, det beror på att det inte
- finns några förändringar i filerna i vårt repo.
+ finns några förändringar i filerna i vårt repo (det är bara förändringar
+ jämfört med vårt senaste commit som visas).
  Gå in i den mapp du versionshanterat (MittRepo) och titta.
- Filerna finns kvar.
+ Filerna finns kvar, i mappen har inget skett.
 \end_layout
 
 \begin_deeper
@@ -622,7 +644,8 @@ era.
 
 \end_deeper
 \begin_layout Enumerate
-Vi kan vilja se vilka förändringar vi gjort (för spårbarheten).
+Vi kan vilja se vilka förändringar vi gjort över tid i vårt repo (för spårbarhet
+).
  För att göra det klickar vi på 
 \begin_inset Quotes sld
 \end_inset
@@ -637,7 +660,7 @@ klockan
  I denna vy kan vi se vilka tidigare commits som gjorts, när de gjordes
  och av vem de gjordes.
  Nu är det bara en commit gjord, men längre fram kommer vi se hela historiken
- med alla våra förändringarvi gjort.
+ med alla våra commits.
 \end_layout
 
 \begin_deeper
@@ -660,9 +683,18 @@ Stage och Commit
 
 \begin_layout Standard
 Versionshantering med git handlar om att vi gör förändringar i våra filer
- och vi sedan vill lägga till dessa förändringar.
- Som ett första steg ska vi ändra i en av våra versionshanterade filer.
- Vi ska lägga till en rad i example_R.R där vi läser in csv-filen iris.csv.
+ och sparar filerna.
+ Sedan vill vi lägga till dessa förändringar i git som en eller flera commits.
+ Som ett första steg ska vi ändra i en av våra nu versionshanterade filer.
+ Vi ska lägga till en rad i 
+\family typewriter
+example_R.R
+\family default
+ där vi läser in csv-filen 
+\family typewriter
+iris.csv
+\family default
+.
  
 \end_layout
 
@@ -750,7 +782,7 @@ staged files
 
  (markerade filer).
  Det innebär att vi markerar att vi vill lägga till denna förändring i vårt
- repo.
+ repo som en ny commit.
 \end_layout
 
 \begin_layout Enumerate
@@ -778,11 +810,12 @@ Commit
 
 \end_deeper
 \begin_layout Enumerate
-Nu har vi gjort en förändring och commitat in denna förändring i vårt repo.
+Nu har vi gjort en förändring i en av våra filer och commitat in denna förändrin
+g i vårt repo.
 \end_layout
 
 \begin_layout Standard
-På detta sätt kan vi hantera förändringar av filer.
+Detta är det vanligaste sättet att hantera förändringar av filer.
  Vi kan självklart också lägga till nya filer (som tidigare), flytta filer
  och ta bort filer.
  Nu ska vi se hur det fungerar.
@@ -841,8 +874,8 @@ stage to commit
 example_R.R
 \family default
 ) och skapa samma fil igen, bara flyttar filen mellan två olika mappar.
- När vi har markerat dessa förändringar kan vi också commita dessa två förändrin
-gar till vårt repo med 
+ När vi har markerat dessa förändringar kan vi också commita dessa förändringar
+ till vårt repo med 
 \series bold
 Commit
 \series default
@@ -865,22 +898,14 @@ Commit
 \end_deeper
 \begin_layout Standard
 Det är inte alltid vi vill lägga till alla förändringar i en enskild fil
- i ett commit.
+ i en commit.
  Vi kanske har löst två buggar på en gång men vill commita in dem som två
- commits.
+ commits av spårbarhetsskäl.
  Det är för dessa situationer som vi har riktig nytta av att använda 
 \begin_inset Quotes sld
 \end_inset
 
 Stage
-\begin_inset Quotes srd
-\end_inset
-
- och 
-\begin_inset Quotes sld
-\end_inset
-
-Unstage
 \begin_inset Quotes srd
 \end_inset
 
@@ -961,7 +986,7 @@ Stage lines
 \begin_layout Enumerate
 Commita nu de rader som du markerade ovan.
  När detta är gjort återstår den del av filen som vi inte redan markerat
- och commita in.
+ och commitat in.
 \end_layout
 
 \begin_deeper
@@ -989,8 +1014,8 @@ Commits och commit messages
 \begin_layout Standard
 När det gäller exakt vad som bör ingå i ett givet commit beror det på från
  person till person.
- En bra rutin är att commita en bit kod, data eller text den lilla delen
- är 
+ En bra rutin är att commita en bit kod, data eller text när den del vi
+ arbetar med är 
 \begin_inset Quotes sld
 \end_inset
 
@@ -1008,7 +1033,7 @@ klar
 \series bold
 OBS!
 \series default
- Commita inte in en del kod som inte fungerar.
+ Commita inte in en kod som inte fungerar.
 \end_layout
 
 \begin_layout Standard
@@ -1021,9 +1046,9 @@ uppdateringar
 \begin_inset Quotes srd
 \end_inset
 
-, vilket är intetsägande både för sig själv eller andra.
- En best practice är att tänka att ett commitmeddelande ska kunna fortfölja
- följande mening:
+ som commit message, vilket är intetsägande både för sig själv eller andra.
+ En best practice är att tänka att ett commitmeddelande ska kunna fylla
+ i följande mening:
 \end_layout
 
 \begin_layout Quote
@@ -1039,9 +1064,10 @@ Commit hash
 \begin_layout Standard
 Varje commit får en hash-kod.
  Denna hashkod är unik för varje commit och blir på så sätt ett fingeravtryck
- för exakt hur koden såg ut vid exakt denna tidpunkt.
+ för exakt hur koden såg ut vid denna tidpunkt.
  Det är inte ovanligt att program som körs loggar commit hashen i rapporter
- eller dylikt för att veta exakt hur koden såg ut när analysen gjordes.
+ eller dylikt för att veta exakt hur koden såg ut när analysen gjordes eller
+ koden kördes.
  
 \end_layout
 
@@ -1120,8 +1146,8 @@ Discard changes
 Ok
 \series default
 .
- Nu har vi återställt den förändring vi gjort (och sparat över den gamla
- filen med).
+ Nu har vi återställt den förändring vi gjort (och sparat).
+ Titta i filen att den återställts till den senaste commiten.
 \end_layout
 
 \begin_deeper
@@ -1145,8 +1171,7 @@ Diff
 \begin_layout Standard
 Nu när vi lagt till och hanterat våra filer kan det vara intressant att
  jämföra olika commits.
- Exempelvis om vi vill se vilka förändringar vi gjort totalt sett över flera
- commits.
+ Exempelvis om vi vill se vilka förändringar vi gjort, sett över flera commits.
  
 \end_layout
 
@@ -1198,7 +1223,7 @@ Tags
 \begin_layout Standard
 Vi kan enkelt spåra förändringar mellan två commits, men ibland vill vi
  märka ut en enskild commit extra (ex.
- för att vi har en given version).
+ för att vi har en given version eller vi gjort en preliminär analys).
  Då kan vi lägga till en tag till en enskild commit.
  Detta är ett sätt för att märka upp de större stegen som gjorts i ett projekt.
  
@@ -1281,18 +1306,23 @@ En vanlig textfil öppnas då och då kan vi lägga till vilka sorters filer
 \family typewriter
 *.pdf
 \family default
- Nu kommer alla pdf-filer att ignoreras.
- På liknande sätt kan vi ignorera enskilda mappar.
- Detta är bekvämt om vi har filer vi jobbar med med vi inte vill att git
- ska bevaka.
+ Nu kommer alla pdf-filer att ignoreras i detta repo.
+ Pröva att lägg till en pdf-fil i repot.
+ Nu kommer git ignorera denna fil.
 \end_layout
 
 \begin_layout Enumerate
+På liknande sätt kan vi ignorera enskilda mappar.
+ Detta är bekvämt om vi har filer vi jobbar med med vi inte vill att git
+ ska versionhantera/bevaka.
+\end_layout
 
+\begin_layout Enumerate
+Ändrar vi i 
 \family typewriter
 .gitignore
 \family default
- kommer nu dyka upp som en fil i repot (det är bara en vanlig textfil).
+ kommer den dyka upp som en fil i repot (det är bara en vanlig textfil).
  
 \series bold
 
@@ -1301,7 +1331,7 @@ En vanlig textfil öppnas då och då kan vi lägga till vilka sorters filer
 
 Obs!
 \series default
- committa inte in 
+ Commita inte in 
 \family typewriter
 .gitignore
 \family default
@@ -1326,13 +1356,15 @@ Remote repositories
 \begin_layout Standard
 Fram till nu har vi fokuserat på lokal versionshantering.
  Det fungerar bra om vi jobbar med ett eget projekt där vi inte samarbetar
- med andra och ingen annan har behov av vår kod.
+ med andra och ingen annan har behov av vår kod så länge vi arbetar med
+ projektet.
  Vill vi däremot arbeta tillsammans med andra behöver vi ett remote repository
- (kallas också globalt repo i denna text) som lagrar våra commit på ett
- centralt plats och som andra kan komma åt.
+ (kallas också globalt repo eller centralt repo).
+ Ett centralt repo lagrar våra commit på ett centralt plats som andra personer
+ kan komma åt.
  Här kommer vi använda github.com som exempel, men det finns andra möjligheter
  som BitBucket eller GitLab.
- I praktiken är det bara url-adressen till det globala repot som skiljer
+ I praktiken är det ofta bara url-adressen till det globala repot som skiljer
  sig.
 \end_layout
 
@@ -1341,8 +1373,9 @@ Skapa ett globalt (remote) repository
 \end_layout
 
 \begin_layout Standard
-Vi gör detta på github, men exakt hur vi skapar ett remote repo är olika
- för olika tjäsnter som github, Bitbucket och GitLab.
+Vi gör detta på github.
+ Exakt hur vi skapar ett remote repo är olika för olika tjänster som GitHub,
+ Bitbucket och GitLab.
 \end_layout
 
 \begin_layout Enumerate
@@ -1369,10 +1402,9 @@ Skapa ett nytt repo
 \end_deeper
 \begin_layout Enumerate
 Nästa steg är att ge repot ett namn, beskriva det kort och ange om det ska
- vara publikt (öppet för alla) eller privat (bara de du bestämmer kommer
- åt koden).
- Skapa nu ett öppet repo.
- Ange att repot ska skapas med en README.
+ vara publikt (öppet för alla att läsa) eller privat (bara de du bestämmer
+ kan läsa innehållet).
+ Skapa nu ett öppet repo och ange att repot ska skapas med en README.
  Klicka på 
 \series bold
 Create repository
@@ -1415,11 +1447,15 @@ Nu har du skapat ett remote repository på github.com.
 \end_deeper
 \begin_layout Enumerate
 Vi har nu skapat ett remote repo på github.
- Men eftersom git alltid arbetar lokalt behöver vi klona detta repo till
- vår egen dator.
- Det gör vi i SourceTreegenom att välja 
+ Men då git alltid arbetar lokalt behöver vi klona detta repo till vår egen
+ dator.
+ Det gör vi i SourceTre egenom att välja 
 \series bold
-Clone from URL
++New repository 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Clone from URL
 \series default
 .
 \end_layout
@@ -1442,7 +1478,7 @@ Clone from URL
 För att klona ett remote repo behöver vi ange den sökväg (URL) till vårt
  remote repo samt var vi ska klona detta repo (på vår egen dator).
  Precis som tidigare behöver vi ange en mapp på vår dator som också blir
- namnet på vårt repo.
+ (det lokala) namnet på vårt repo.
 \end_layout
 
 \begin_deeper
@@ -1470,8 +1506,8 @@ Push
 \begin_layout Standard
 När vi arbetar med vårt gemensamma repo arbetar vi på samma sätt som när
  vi har ett helt lokalt repo.
- När vi är klara och vill dela med oss av vad vi gjort använder vi oss av
- funktionen 
+ När vi är klara och vill dela med oss av vad vi gjort använder vi oss sedan
+ av funktionen 
 \series bold
 Push
 \series default
@@ -1547,8 +1583,8 @@ OK
 
 \end_deeper
 \begin_layout Enumerate
-Nu kan vi titta på github igen och se att de nya filerna ligger på github
- och kan användas av andra.
+Nu kan vi titta på github igen.
+ De nya filerna ligger på github och kan läsas av andra.
 \end_layout
 
 \begin_layout Standard
@@ -1602,8 +1638,8 @@ README
 \end_deeper
 \begin_layout Enumerate
 Nu när vi har gjort en förändring direkt på github kan vi låtsas som att
- detta är en förändring vår kollega gjort.
- För att lägga till denna förändring klickar vi på 
+ detta är en förändring vår kollega gjort och pushat upp till github.
+ För att lägga till denna förändring i vårt lokala repo klickar vi på 
 \series bold
 Pull
 \series default
@@ -1625,8 +1661,8 @@ Pull
 
 \end_deeper
 \begin_layout Enumerate
-Nu har vi uppdaterat vårt lokala git repo med de förändringar som vi lagt
- till i det globala repot.
+Nu har vi uppdaterat vårt lokala git repo med de förändringar som låg i
+ det globala repot.
 \end_layout
 
 \begin_deeper
@@ -1676,7 +1712,7 @@ Added some remote text på github
 \begin_inset Quotes srd
 \end_inset
 
-.
+ i filen på github.
 \end_layout
 
 \begin_layout Enumerate
@@ -1696,7 +1732,7 @@ Added some local text
  Nu har vi skapat en konflikt - vi har ändrat på samma rad samtidigt både
  i det globala och det lokala repot.
  Vi ser nu att vi både ligger ett commit före och efter vårt remote repo
- - git skapar två olika grenar.
+ - git har skapat två olika grenar.
 \end_layout
 
 \begin_deeper
@@ -1893,11 +1929,11 @@ Branch
 
 \begin_layout Standard
 Initialt i vårt repo har vi alltid vår huvudgren master, eller master branch.
- Det är bra att se master som den huvudsakliga grenen i repot.
+ Det är bra att se master som huvudgrenen i repot.
  En person som bara ska använda vår kod eller läsa vår rapport ska bara
  behöva titta i repots master branch.
  Alla andra grenar är till för de som arbetar i projektet och gör tillägg
- till master branch.
+ eller förändringar.
 \end_layout
 
 \begin_layout Enumerate
@@ -1966,8 +2002,12 @@ development
 
 \end_deeper
 \begin_layout Enumerate
-Byt nu tillbaka till vår master branch.
- Klicka på master i vänstervyn och committa in följande text i README.md.
+Byt nu tillbaka till vår master branch genom att klicka på master i vänstervyn.
+ Committa sedan in följande text i 
+\family typewriter
+README.md
+\family default
+.
 \end_layout
 
 \begin_deeper
@@ -1993,7 +2033,7 @@ Graph
 \begin_inset Quotes srd
 \end_inset
 
- kan vi också se en bild över de två grenarna vi nu har, development och
+ kan vi också se en bild över de två grenarna vi skapat, development och
  master.
  
 \end_layout
@@ -2013,7 +2053,7 @@ Graph
 \end_deeper
 \begin_layout Enumerate
 Pröva att byta branch från development till master och vice versa.
- Vad händer med filerna 
+ Vad händer med innehållet i filerna 
 \family typewriter
 README.md
 \family default
@@ -2050,8 +2090,16 @@ OK
 \begin_layout Enumerate
 Nu har vi pushat både master branch och development branch till vårt remote
  repo.
- Vi ser det genom att det finns en origin/development- och origin/master-indikat
-or.
+ Vi ser det genom att det finns en origin/development- och origin/master-tagg
+ i vår 
+\begin_inset Quotes sld
+\end_inset
+
+History
+\begin_inset Quotes srd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -2061,14 +2109,13 @@ Merge
 \begin_layout Standard
 När vi arbetat klart med en enskild gren och vi vill lägga till denna gren
  till vår huvudgren, master, använder vi Merge för att slå ihop grenar.
- 
 \end_layout
 
 \begin_layout Enumerate
 För att slå ihop en gren behöver vi först aktivera den gren vi vill lägga
  till en annan gren till.
  Har vi arbetat i en developmentgren och vill lägga till detta arbete till
- master ska vi aktivera huvudgrenen master.
+ master ska vi aktivera master.
  
 \end_layout
 
@@ -2099,8 +2146,8 @@ Ok
 
 \end_deeper
 \begin_layout Enumerate
-Nu har skillnaden mellan master och development grenarana lagts till i filerna
- i master branch.
+Nu har skillnaden mellan master och development lagts till i filerna i master
+ branch - dock har detta inte lagts till som en commit.
  För att slutligen slå ihop grenarna behöver vi därför commita in dessa
  skillnader i vår master branch.
 \end_layout
@@ -2203,7 +2250,7 @@ För att återgå till vårt arbete kan vi sedan bara checka ut vårt sista comm
 \end_layout
 
 \begin_layout Section
-Korrigera fel i repot - Revert och Reset
+Korrigera fel i ett repo - Revert och Reset
 \end_layout
 
 \begin_layout Standard
@@ -2217,19 +2264,19 @@ ta bort
 \end_inset
 
  enskilda commits.
- Eftersom git är gjort för att det ska vara svårt att ta bort kod kan det
- vara lite krångligt.
+ Eftersom git är gjort för att det ska vara svårt att ta bort commits (av
+ spårbarhetsskäl) kan det vara lite krångligt.
  Vill vi ta bort det vi gjort i en eller flera commits finns det två vägar
  att gå.
  Har vi inte pushat upp det vi commit kan vi använda reset.
  Har vi däremot pushat upp våra commits till vårt remote repo bör vi istället
  använda revert.
- Revert skapar en ny commit som återställer tidigare commits i en ny commit.
+ Revert skapar en ny commit som återställer tidigare commits.
  Reset däremot tar bort enskilda commits.
 \end_layout
 
 \begin_layout Enumerate
-Börja med att ta bort filen 
+Börja med att radera filen 
 \family typewriter
 iris.csv
 \family default
@@ -2311,7 +2358,16 @@ Reset master to this commit
 \end_deeper
 \begin_layout Enumerate
 Nu har du tagit bort dessa commits.
- Kvar kommer de förändringar som gjorts i dessa två commits finnas kvar.
+ Var det några förändringar i filerna som gjors commer dessa förändringar
+ dyka upp som 
+\begin_inset Quotes sld
+\end_inset
+
+uncommitted changes
+\begin_inset Quotes srd
+\end_inset
+
+.
 \end_layout
 
 \begin_deeper
