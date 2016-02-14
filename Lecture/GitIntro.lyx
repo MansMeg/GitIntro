@@ -248,7 +248,7 @@ Syfte
 
 \begin_deeper
 \begin_layout Itemize
-Förstå moderna versionshantering
+Förstå modern versionshantering
 \end_layout
 
 \begin_deeper
@@ -268,7 +268,7 @@ Komma igång med git och github
 
 \end_deeper
 \begin_layout Itemize
-Få tillräcklig bakgrund för att:
+Skapa grund för att:
 \end_layout
 
 \begin_deeper
@@ -291,7 +291,7 @@ skarpt läge
 
 \end_deeper
 \begin_layout Itemize
-Egen fördjupning 
+Egen fördjupning vid behov
 \end_layout
 
 \end_deeper
@@ -369,7 +369,7 @@ Spara olika versioner
 
 \end_deeper
 \begin_layout Itemize
-Återställa versioner
+Återställa tidigare versioner
 \end_layout
 
 \begin_deeper
@@ -379,17 +379,7 @@ Spara olika versioner
 
 \end_deeper
 \begin_layout Itemize
-Se förändringar som gjorts
-\end_layout
-
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Spårbarhet
+Spåra förändringar
 \end_layout
 
 \begin_deeper
@@ -430,6 +420,10 @@ key "wilson2014best"
 \end_inset
 
 :
+\end_layout
+
+\begin_layout Pause
+
 \end_layout
 
 \begin_layout Itemize
@@ -490,7 +484,17 @@ Vad är git?
 
 \begin_deeper
 \begin_layout Itemize
-Distribuerat versionshanteringssystem
+Versionshanteringssystem
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Distribuerat
 \end_layout
 
 \begin_deeper
@@ -563,7 +567,7 @@ Varför git?
 
 \begin_deeper
 \begin_layout Itemize
-(Relativt) enkelt att använda och börja med
+(Relativt) enkelt att börja använda
 \end_layout
 
 \begin_deeper
@@ -573,7 +577,17 @@ Varför git?
 
 \end_deeper
 \begin_layout Itemize
-Kan användas isolerat av enskilda
+Kan användas isolerat av enskilda medarbetare
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Öppen källkod
 \end_layout
 
 \begin_deeper
@@ -616,16 +630,6 @@ Säkert
 Standard i R-världen - hantering av R-paket på github
 \end_layout
 
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Öppen källkod
-\end_layout
-
 \end_deeper
 \begin_layout Separator
 
@@ -650,7 +654,7 @@ Vad är git remote?
 
 \begin_deeper
 \begin_layout Itemize
-Central lagring av kod, data m.m.
+Central lagring av versionshanterad kod, data m.m.
  
 \end_layout
 
@@ -862,7 +866,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status open
+status collapsed
 
 \begin_layout Itemize
 Grunden i git
@@ -877,7 +881,7 @@ Mapp som är versionhanterad
 \end_layout
 
 \begin_layout Itemize
-Gör vad ni vill i mappen
+Gör vad ni vill i mappen - arbeta som vanligt
 \end_layout
 
 \end_inset
@@ -932,7 +936,7 @@ status open
 status open
 
 \begin_layout Itemize
-En fryst förändring i repot
+En fryst förändring/miniversion i repot
 \end_layout
 
 \begin_deeper
@@ -944,17 +948,33 @@ Tillagda filer
 Förändrade filer
 \end_layout
 
+\begin_layout Itemize
+Borttagna filer
+\end_layout
+
 \end_deeper
 \begin_layout Itemize
 Atomerna i git
 \end_layout
 
 \begin_layout Itemize
-Innehåller namn, meddelande, tid och hash
+Innehåller: namn, meddelande, tid och hash
 \end_layout
 
 \begin_layout Itemize
-Lägg till commits - skapar vår history
+Lägg till commits - skapar vår history i repot
+\end_layout
+
+\begin_layout Itemize
+Minsta möjliga 
+\begin_inset Quotes eld
+\end_inset
+
+klar
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1009,7 +1029,7 @@ status open
 status open
 
 \begin_layout Itemize
-Varje fil som berörs i en kommit sparas ned som fryst bild
+Varje fil som berörs i en kommit sparas ned som fryst bild av filen
 \end_layout
 
 \begin_layout Itemize
@@ -1020,9 +1040,38 @@ Snabbt, säkert
 Tar mer utrymme - särskilt om stora filer förändras
 \end_layout
 
+\begin_layout Itemize
+Kan checkout varje commit
+\end_layout
+
 \end_inset
 
 
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Commit message
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+If applied, this commit will 
+\series bold
+[your commit message here]
 \end_layout
 
 \end_deeper
@@ -1069,7 +1118,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status open
+status collapsed
 
 \begin_layout Itemize
 Gå igenom varje pil
@@ -1128,10 +1177,10 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status open
+status collapsed
 
 \begin_layout Itemize
-Centralt repo - ofta lagrad i Molnet
+Centralt repo - ofta lagrad i Molnet (säkert)
 \end_layout
 
 \begin_layout Itemize
@@ -1139,7 +1188,7 @@ Som ytterligare ett lokalt repo ngn annanstans.
 \end_layout
 
 \begin_layout Itemize
-Git är distribuerat - kann kommunicera mellan lokal repon
+Git är distribuerat - kan kommunicera mellan lokala repon
 \end_layout
 
 \begin_layout Itemize
@@ -1161,7 +1210,7 @@ Vanligast är att kommunivera via remote repo
 status open
 
 \begin_layout Plain Layout
-Local to remote - Push
+Local till remote - Push
 \end_layout
 
 \end_inset
@@ -1199,7 +1248,15 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status open
+status collapsed
+
+\begin_layout Itemize
+HEAD - den version vi är på
+\end_layout
+
+\begin_layout Itemize
+Mast är vår default/huvudgren
+\end_layout
 
 \begin_layout Itemize
 Arbetar lokalt
@@ -1237,7 +1294,7 @@ Går bara om vi är före det centrala repot
 status open
 
 \begin_layout Plain Layout
-Local to remote - Push
+Local till remote - Push
 \end_layout
 
 \end_inset
@@ -1275,7 +1332,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status open
+status collapsed
 
 \begin_layout Itemize
 Efter push - båda är på samma nivå
@@ -1296,7 +1353,7 @@ Efter push - båda är på samma nivå
 status open
 
 \begin_layout Plain Layout
-Remote to local - Pull
+Remote till local - Pull
 \end_layout
 
 \end_inset
@@ -1330,7 +1387,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status open
+status collapsed
 
 \begin_layout Itemize
 Samma commits
@@ -1351,7 +1408,7 @@ Samma commits
 status open
 
 \begin_layout Plain Layout
-Remote to local - Pull
+Remote till local - Pull
 \end_layout
 
 \end_inset
@@ -1385,7 +1442,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status open
+status collapsed
 
 \begin_layout Itemize
 Kollega pushar två commits till det centrala repot
@@ -1410,7 +1467,7 @@ Vi ligger efter lokalt
 status open
 
 \begin_layout Plain Layout
-Remote to local - Pull
+Remote till local - Pull
 \end_layout
 
 \end_inset
@@ -1444,7 +1501,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status open
+status collapsed
 
 \begin_layout Itemize
 Vi använder Pull för att dra ned de nya commitsen
@@ -1456,7 +1513,7 @@ Måste alltid göras innan push
 
 \begin_layout Itemize
 Om vi Pull commit i samma fil vi ändrat i - merge conflict - löses lokalt
- sedan psuh
+ sedan push
 \end_layout
 
 \end_inset
@@ -1474,7 +1531,7 @@ Om vi Pull commit i samma fil vi ändrat i - merge conflict - löses lokalt
 status open
 
 \begin_layout Plain Layout
-Branch and merge
+Branch och merge
 \end_layout
 
 \end_inset
@@ -1508,7 +1565,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status open
+status collapsed
 
 \begin_layout Itemize
 Huvudgren - Master 
@@ -1522,6 +1579,10 @@ Den gren som används i produktion
 \end_deeper
 \begin_layout Itemize
 Ny gren - nya tillägg, vill inte låsa upp/mess with Master
+\end_layout
+
+\begin_layout Itemize
+Vill pröva något - kan läta grenen hänga sedan
 \end_layout
 
 \begin_layout Itemize
@@ -1565,7 +1626,7 @@ Måste ALLTID ange vilken branch man jobbar med (lägger till commits)
 status open
 
 \begin_layout Plain Layout
-Branch and merge
+Branch och merge
 \end_layout
 
 \end_inset
@@ -1599,7 +1660,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status open
+status collapsed
 
 \begin_layout Itemize
 Två grenar
@@ -1668,7 +1729,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status open
+status collapsed
 
 \begin_layout Itemize
 Två händerlser:
