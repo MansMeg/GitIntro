@@ -217,11 +217,10 @@ För att kunna genomföra denna laboration (och använda git framöver) behövs
  versionshanteringsverktyget git.
  För att underlätta arbetet med git rekommenderas också det grafiska gränsnittet
  SourceTree.
- Git och SourceTree fungerar oavsett operativsystem eller program vi arbetar
- med.
- Således fungerar det lika bra att versionshantera SAS eller SPSS-kod som
- att versionshantera R-kod eller rapporter.
- Programmen är gratis och bygger på öppen källkod.
+ Git och SourceTree fungerar oavsett operativsystem.
+ Git fungerar för all typ av programkod som SAS-, SPSS- och R-kod liksom
+ för data i csv-format och textfiler.
+ Git och SourceTree är gratis och bygger på öppen källkod.
 \end_layout
 
 \begin_layout Enumerate
@@ -354,7 +353,7 @@ repository
 \begin_inset Quotes srd
 \end_inset
 
-, eller kortare 
+, eller 
 \begin_inset Quotes sld
 \end_inset
 
@@ -363,10 +362,15 @@ repo
 \end_inset
 
 .
- Det enklast är att se ett repo som en mapp på datrn och allt vi lägger
- i mappen versionhanteras av git.
+ Det enklast är att se ett repo som en vanlig mapp på datorn och allt vi
+ lägger i mappen versionhanteras av git.
  Mappen kan innehålla vilka filer vi vill, som kod, data och rapporter.
- Git är dock smidigast att hantera textfiler som programkod, data i csv-format
+ Således är det bara att arbeta vidare som vanligt.
+ 
+\end_layout
+
+\begin_layout Standard
+Git är smidigast för att hantera textfiler som programkod, data i csv-format
  och rapporter i text eller markdownformat.
  Exakt vilken omfattning ett repo ska ha är inte helt uppenbart, men ofta
  utgörs ett repo av ett 
@@ -377,7 +381,7 @@ projekt
 \begin_inset Quotes srd
 \end_inset
 
-.
+ i abstract mening.
 \end_layout
 
 \begin_layout Standard
@@ -490,12 +494,20 @@ target "https://github.com/MansMeg/GitIntro/tree/master/Lab/example_files"
 \end_layout
 
 \begin_layout Standard
-Dessa filer kopierar jag till den mapp som utgör mitt nyligen skapade repo.
+Kopiera dessa tre filer till den mapp som utgör det nyligen skapade repot.
  Filen 
 \family typewriter
 iris.csv
 \family default
- ligger i en undermappen data.
+ ligger i en undermapp 
+\begin_inset Quotes sld
+\end_inset
+
+data
+\begin_inset Quotes srd
+\end_inset
+
+.
  I SourceTree borde det då se ut ungefär såhär:
 \end_layout
 
@@ -622,8 +634,8 @@ Commit
 \begin_layout Enumerate
 Nu har vi skapat vårt första repo och lagt till de tre filer vi vill versionhant
 era med vårt första commit.
- I SourceTree ser det nu ut som filerna saknas, det beror på att det inte
- finns några förändringar i filerna i vårt repo (det är bara förändringar
+ I SourceTree ser det nu ut som att filerna saknas, det beror på att det
+ inte finns några förändringar i filerna i vårt repo (det är bara förändringar
  jämfört med vårt senaste commit som visas).
  Gå in i den mapp du versionshanterat (MittRepo) och titta.
  Filerna finns kvar, i mappen har inget skett.
@@ -1095,7 +1107,7 @@ Reset unstaged changes
 
 \begin_layout Standard
 Att kunna versionshantera kod är bra, men vi vill också kunna ångra förändringar
- vi gjort och sparat i våra versionhanterade filer.
+ vi gjort men inte commitat.
  
 \end_layout
 
@@ -1146,7 +1158,7 @@ Discard changes
 Ok
 \series default
 .
- Nu har vi återställt den förändring vi gjort (och sparat).
+ Nu har vi återställt den förändring vi gjorde men inte commitade.
  Titta i filen att den återställts till den senaste commiten.
 \end_layout
 
@@ -1308,7 +1320,7 @@ En vanlig textfil öppnas då och då kan vi lägga till vilka sorters filer
 \family default
  Nu kommer alla pdf-filer att ignoreras i detta repo.
  Pröva att lägg till en pdf-fil i repot.
- Nu kommer git ignorera denna fil.
+ Git kommer inte visa denna fil.
 \end_layout
 
 \begin_layout Enumerate
@@ -1355,17 +1367,21 @@ Remote repositories
 
 \begin_layout Standard
 Fram till nu har vi fokuserat på lokal versionshantering.
- Det fungerar bra om vi jobbar med ett eget projekt där vi inte samarbetar
- med andra och ingen annan har behov av vår kod så länge vi arbetar med
- projektet.
+ Det fungerar bra om vi jobbar med ett eget projekt och ingen annan har
+ behov av att delta i vårt arbete.
  Vill vi däremot arbeta tillsammans med andra behöver vi ett remote repository
- (kallas också globalt repo eller centralt repo).
- Ett centralt repo lagrar våra commit på ett centralt plats som andra personer
- kan komma åt.
- Här kommer vi använda github.com som exempel, men det finns andra möjligheter
- som BitBucket eller GitLab.
+ (också kallat globalt repo eller centralt repo).
+ Ett remote repo lagrar våra commit på ett centralt plats och medlemmarna
+ i det centrala repot kan lägga till egna commits och hämta ned andras commits.
+ I denna labb kommer vi använda github.com som exempel, men det finns andra
+ tjänster som BitBucket eller GitLab.
  I praktiken är det ofta bara url-adressen till det globala repot som skiljer
  sig.
+\end_layout
+
+\begin_layout Standard
+Varje centralt repo har ett antal medlemmar som kan delta och arbeta med
+ repot.
 \end_layout
 
 \begin_layout Subsection
@@ -1402,7 +1418,7 @@ Skapa ett nytt repo
 \end_deeper
 \begin_layout Enumerate
 Nästa steg är att ge repot ett namn, beskriva det kort och ange om det ska
- vara publikt (öppet för alla att läsa) eller privat (bara de du bestämmer
+ vara publikt (öppet för alla att läsa) eller privat (bara repots medlemmar
  kan läsa innehållet).
  Skapa nu ett öppet repo och ange att repot ska skapas med en README.
  Klicka på 
@@ -1496,7 +1512,7 @@ För att klona ett remote repo behöver vi ange den sökväg (URL) till vårt
 
 \end_deeper
 \begin_layout Enumerate
-Nu har vi klonat vårt remote repo så det också finns på vår egen dator.
+Nu har vi klonat vårt remote repo till vår egen dator.
 \end_layout
 
 \begin_layout Subsection
@@ -1584,7 +1600,7 @@ OK
 \end_deeper
 \begin_layout Enumerate
 Nu kan vi titta på github igen.
- De nya filerna ligger på github och kan läsas av andra.
+ De nya filerna ligger nu i vårt centrala repo på github.
 \end_layout
 
 \begin_layout Standard
@@ -1605,8 +1621,8 @@ Pull
 
 \begin_layout Standard
 Om vi sitter med samma projekt och någon annan har pushat upp ny kod, data
- eller text behöver vi hämta ned detta för att vi ska kunna fortsätta där
- vår kollega slutade.
+ eller text behöver vi hämta ned dessa commits för att vi ska kunna fortsätta
+ där vår kollega slutade.
  Detta gör vi med 
 \series bold
 Pull
@@ -1754,7 +1770,7 @@ För att lösa vår konflikt måste vi först använda
 Pull
 \series default
  för att dra ned de commits i vårt remote repo som vi saknar lokalt.
- Vi löser sedan alltid konflikter lokalt.
+ Vi löser alltid konflikter lokalt.
  Klicka 
 \series bold
 OK
@@ -1776,7 +1792,7 @@ OK
 
 \end_deeper
 \begin_layout Enumerate
-Nu får vi en varning om att vi har en konflikt vi måste lösa lokalt.
+Nu får vi en varning om att vi har en konflikt.
 \end_layout
 
 \begin_deeper
@@ -1872,8 +1888,8 @@ Branch och merge
 
 \begin_layout Standard
 Nu kommer vi in på lite mer avancerade delar i git, men som är av stor betydelse
- för att kunna arbeta effektivt med kod, data och rapporter.
- Särskilt i större projekt är detta av stor betydelse.
+ för att kunna arbeta effektivt med kod, data och rapporter, särskilt i
+ större löpande projekt med flera medarbetare.
 \end_layout
 
 \begin_layout Standard
@@ -1934,6 +1950,12 @@ Initialt i vårt repo har vi alltid vår huvudgren master, eller master branch.
  behöva titta i repots master branch.
  Alla andra grenar är till för de som arbetar i projektet och gör tillägg
  eller förändringar.
+\end_layout
+
+\begin_layout Standard
+För att förstå vad en branch är kan vi tänka oss att vi gör en kopia av
+ vårt repo och arbetar vidare med denna kopia.
+ Denna kopia är en branch.
 \end_layout
 
 \begin_layout Enumerate
@@ -2061,7 +2083,7 @@ README.md
 \family typewriter
 example_text.txt
 \family default
- när vi byter branch?
+ i vår versionhanterade mapp när vi byter branch?
 \end_layout
 
 \begin_layout Enumerate
@@ -2108,7 +2130,7 @@ Merge
 
 \begin_layout Standard
 När vi arbetat klart med en enskild gren och vi vill lägga till denna gren
- till vår huvudgren, master, använder vi Merge för att slå ihop grenar.
+ till vår huvudgren, master, använder vi Merge.
 \end_layout
 
 \begin_layout Enumerate
@@ -2120,7 +2142,8 @@ För att slå ihop en gren behöver vi först aktivera den gren vi vill lägga
 \end_layout
 
 \begin_layout Enumerate
-Klicka nu på 
+Markera grenen master.
+ Klicka nu på 
 \series bold
 Merge
 \series default
