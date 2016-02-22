@@ -92,7 +92,7 @@ knitr
 \justification true
 \use_refstyle 0
 \branch Kommentarer
-\selected 1
+\selected 0
 \filename_suffix 0
 \color #faf0e6
 \end_branch
@@ -379,7 +379,7 @@ Spara olika versioner
 
 \end_deeper
 \begin_layout Itemize
-Spåra förändringar
+Spårbarhet (kod och data)
 \end_layout
 
 \begin_deeper
@@ -389,7 +389,7 @@ Spåra förändringar
 
 \end_deeper
 \begin_layout Itemize
-Kodsäkerhet
+Kodsäkerhet - best practice vid vetenskaplig programmering
 \end_layout
 
 \end_deeper
@@ -494,7 +494,7 @@ Versionshanteringssystem
 
 \end_deeper
 \begin_layout Itemize
-Distribuerat
+Distribuerat och lokalt
 \end_layout
 
 \begin_deeper
@@ -630,6 +630,16 @@ Säkert
 Standard i R-världen - hantering av R-paket på github
 \end_layout
 
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Bas i modern (statistisk) mjukvaruutveckling
+\end_layout
+
 \end_deeper
 \begin_layout Separator
 
@@ -718,6 +728,16 @@ Underlättar samarbeten (kraftigt)
 
 \end_deeper
 \begin_layout Itemize
+Distribuera kode mellan datorer
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
 Säkerhet och backup
 \end_layout
 
@@ -728,7 +748,7 @@ Säkerhet och backup
 
 \end_deeper
 \begin_layout Itemize
-Flexibilitet - The burn it all down workflow
+Administrera projekt
 \end_layout
 
 \begin_deeper
@@ -738,7 +758,7 @@ Flexibilitet - The burn it all down workflow
 
 \end_deeper
 \begin_layout Itemize
-Administrera projekt
+The burn it all down workflow
 \end_layout
 
 \end_deeper
@@ -772,6 +792,26 @@ The amount of git skills to fix a borked up git repo is order of magnitudes
 
 \begin_layout Section
 Grunderna i git
+\end_layout
+
+\begin_layout Standard
+
+\lang swedish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\backslash
+sectionpage}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Frame
@@ -899,192 +939,7 @@ Gör vad ni vill i mappen - arbeta som vanligt
 status open
 
 \begin_layout Plain Layout
-Commit
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/commit1.png
-	lyxscale 40
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch Kommentarer
-status open
-
-\begin_layout Itemize
-En fryst förändring/miniversion i repot
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Tillagda filer
-\end_layout
-
-\begin_layout Itemize
-Förändrade filer
-\end_layout
-
-\begin_layout Itemize
-Borttagna filer
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Atomerna i git
-\end_layout
-
-\begin_layout Itemize
-Innehåller: namn, meddelande, tid och hash
-\end_layout
-
-\begin_layout Itemize
-Lägg till commits - skapar vår history i repot
-\end_layout
-
-\begin_layout Itemize
-Minsta möjliga 
-\begin_inset Quotes eld
-\end_inset
-
-klar
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Commit
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/commit3.png
-	lyxscale 40
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch Kommentarer
-status open
-
-\begin_layout Itemize
-Varje fil som berörs i en kommit sparas ned som fryst bild av filen
-\end_layout
-
-\begin_layout Itemize
-Snabbt, säkert
-\end_layout
-
-\begin_layout Itemize
-Tar mer utrymme - särskilt om stora filer förändras
-\end_layout
-
-\begin_layout Itemize
-Kan checkout varje commit
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Commit message
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Quote
-If applied, this commit will 
-\series bold
-[your commit message here]
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Git arbetsflöde
+Arbetsflödet i git
 \end_layout
 
 \end_inset
@@ -1143,6 +998,187 @@ Kan stagea delar av filer.
 status open
 
 \begin_layout Plain Layout
+Commit
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/commit1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Kommentarer
+status collapsed
+
+\begin_layout Itemize
+En fryst förändring/miniversion i repot
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Tillagda filer
+\end_layout
+
+\begin_layout Itemize
+Förändrade filer
+\end_layout
+
+\begin_layout Itemize
+Borttagna filer
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Atomerna i git - Minsta möjliga 
+\begin_inset Quotes eld
+\end_inset
+
+klar
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Innehåller: namn, meddelande, tid och hash
+\end_layout
+
+\begin_layout Itemize
+Flera commits skapar vår history/repot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Commit
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/commit3.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Kommentarer
+status collapsed
+
+\begin_layout Itemize
+Varje fil som berörs i en kommit sparas ned som fryst bild av filen
+\end_layout
+
+\begin_layout Itemize
+Snabbt, säkert
+\end_layout
+
+\begin_layout Itemize
+Tar mer utrymme - särskilt om stora filer förändras
+\end_layout
+
+\begin_layout Itemize
+Kan checkout varje commit
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Commit message
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Quote
+If applied, this commit will 
+\series bold
+[your commit message here]
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
 Remote
 \end_layout
 
@@ -1180,7 +1216,7 @@ status open
 status collapsed
 
 \begin_layout Itemize
-Centralt repo - ofta lagrad i Molnet (säkert)
+Centralt repo - ofta lagrad i Molnet/central server (säkert)
 \end_layout
 
 \begin_layout Itemize
@@ -1255,7 +1291,7 @@ HEAD - den version vi är på
 \end_layout
 
 \begin_layout Itemize
-Mast är vår default/huvudgren
+Master är vår default/huvudgren
 \end_layout
 
 \begin_layout Itemize
@@ -1263,8 +1299,7 @@ Arbetar lokalt
 \end_layout
 
 \begin_layout Itemize
-Origin / Master anger hur det ser ut i det centrala repot (nu två commits
- efter)
+Origin / Master acentrala repot
 \end_layout
 
 \begin_layout Itemize
