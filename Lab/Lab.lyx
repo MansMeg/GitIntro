@@ -217,14 +217,18 @@ För att kunna genomföra denna laboration (och använda git framöver) behövs
  versionshanteringsverktyget git.
  För att underlätta arbetet med git rekommenderas också det grafiska gränsnittet
  SourceTree.
- Git och SourceTree fungerar oavsett operativsystem.
- Git fungerar för all typ av programkod som SAS-, SPSS- och R-kod liksom
- för data i csv-format och textfiler.
- Git och SourceTree är gratis och bygger på öppen källkod.
+ Git och SourceTree fungerar på samtliga operativsystem.
+ Git och SourceTree fungerar för all typ av programkod som SAS-, SPSS- och
+ R-kod liksom för data i csv-format och textfiler.
+ Git och SourceTree är gratis och bygger båda på öppen källkod.
 \end_layout
 
 \begin_layout Enumerate
-Git: Det program som används för att versionhantera filer.
+
+\series bold
+Git
+\series default
+: Det program som används för att versionhantera filer.
  Git går också att använda direkt från terminalen/kommandotolken för mer
  avancerade användare.
  Ladda ned och installera härifrån:
@@ -246,8 +250,12 @@ target "https://git-scm.com/"
 \end_layout
 
 \begin_layout Enumerate
-SourceTree: Grafiskt gränssnitt till git som gör det bekvämare och enklare
- att arbeta med git.
+
+\series bold
+SourceTree
+\series default
+: Grafiskt gränssnitt till git som gör det bekvämare och enklare att arbeta
+ med git.
  Ladda ned och installera härifrån:
 \begin_inset Newline newline
 \end_inset
@@ -267,8 +275,12 @@ target "https://www.sourcetreeapp.com/"
 \end_layout
 
 \begin_layout Enumerate
-R-Studio: För de som arbetar med R i R-Studio går det också att använda
- R-Studio som grafiskt gränssnitt mot git.
+
+\series bold
+R-Studio
+\series default
+: För de som arbetar med R i R-Studio går det också att använda R-Studio
+ som grafiskt gränssnitt mot git.
  Dock klarar inte R-Studio (i dagsläget) att hantera 
 \begin_inset Quotes sld
 \end_inset
@@ -333,9 +345,9 @@ Grundläggande git
 \end_layout
 
 \begin_layout Standard
-Git är ett system för att versionhantera filer och förenkla samarbete när
- det gäller kod och filer i projekt.
- Det är gjort för att vara snabbt och stabilt.
+Git är ett system för att versionhantera och förenkla samarbete när det
+ gäller programkod och filer.
+ Det är gjort för att vara snabbt och robust.
  För att börja versionhantera ett projekt med git behöver vi först skapa
  ett repository.
 \end_layout
@@ -353,7 +365,7 @@ repository
 \begin_inset Quotes srd
 \end_inset
 
-, eller 
+ eller 
 \begin_inset Quotes sld
 \end_inset
 
@@ -472,7 +484,7 @@ Lägga till filer i repot (Add)
 \end_layout
 
 \begin_layout Standard
-Nu har vi skapat ett helt nytt repo, lokalt på din dator.
+Nu har vi skapat ett nytt repo, lokalt på din dator.
  Men än har vi inte börjat versionhantera några filer.
  Nu måste vi lägga till de filer vi vill versionshantera.
  Det finns tre stycken exempelfiler som vi kommer använda i följande exempel.
@@ -508,23 +520,7 @@ data
 \end_inset
 
 .
- I SourceTree borde det då se ut ungefär såhär:
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename images/AddFiles1.png
-	lyxscale 40
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Vi ska nu lägga till dessa filer i vårt repo och börja versionhantera dem.
+ Vi ska nu lägga till dessa filer i vårt repo och börja versionhantera dem.
 \end_layout
 
 \begin_layout Enumerate
@@ -534,7 +530,7 @@ Vi börjar med att markera vilka filer vi vill börja versionhantera.
 Add
 \series default
 .
- 
+ Det borde se ut ungefär så här i SourceTree:
 \end_layout
 
 \begin_deeper
@@ -1020,7 +1016,7 @@ Commita in den sista kommentaren i repot.
 \end_layout
 
 \begin_layout Subsubsection
-Commits och commit messages
+Vad bör ett commit innehålla?
 \end_layout
 
 \begin_layout Standard
@@ -1045,7 +1041,11 @@ klar
 \series bold
 OBS!
 \series default
- Commita inte in en kod som inte fungerar.
+ Commita aldrig in kod som inte fungerar.
+\end_layout
+
+\begin_layout Subsubsection
+Commit messeges
 \end_layout
 
 \begin_layout Standard
@@ -1375,8 +1375,8 @@ Fram till nu har vi fokuserat på lokal versionshantering.
  i det centrala repot kan lägga till egna commits och hämta ned andras commits.
  I denna labb kommer vi använda github.com som exempel, men det finns andra
  tjänster som BitBucket eller GitLab.
- I praktiken är det ofta bara url-adressen till det globala repot som skiljer
- sig.
+ I praktiken är det ofta bara url-adressen till det globala repot och hemsideuts
+eendet som skiljer sig åt mellan de olika tjänsterna.
 \end_layout
 
 \begin_layout Standard
@@ -1420,7 +1420,8 @@ Skapa ett nytt repo
 Nästa steg är att ge repot ett namn, beskriva det kort och ange om det ska
  vara publikt (öppet för alla att läsa) eller privat (bara repots medlemmar
  kan läsa innehållet).
- Skapa nu ett öppet repo och ange att repot ska skapas med en README.
+ Skapa nu ett öppet repo och ange att repot ska skapas med en README (klicka
+ i checkboxen nedan).
  Klicka på 
 \series bold
 Create repository
@@ -1770,7 +1771,11 @@ För att lösa vår konflikt måste vi först använda
 Pull
 \series default
  för att dra ned de commits i vårt remote repo som vi saknar lokalt.
- Vi löser alltid konflikter lokalt.
+ Vi löser 
+\series bold
+alltid
+\series default
+ konflikter lokalt på vår egen dator.
  Klicka 
 \series bold
 OK
@@ -1822,7 +1827,8 @@ HEAD
 ====
 \family default
  avgränsar den konflikt vi ha med vårt remote repo.
- Vi får också veta exakt i vilken commit (hashen) som vi hade vår konflikt.
+ Vi får också veta exakt i vilken commit (hashen) som vi hade vår konflikt
+ med.
 \end_layout
 
 \begin_deeper
