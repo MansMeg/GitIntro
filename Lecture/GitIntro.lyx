@@ -248,7 +248,7 @@ Syfte
 
 \begin_deeper
 \begin_layout Itemize
-Förstå modern versionshantering
+Grunden för modern versionshantering
 \end_layout
 
 \begin_deeper
@@ -257,21 +257,6 @@ Förstå modern versionshantering
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
-Komma igång med git och github
-\end_layout
-
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Skapa grund för att:
-\end_layout
-
-\begin_deeper
 \begin_layout Itemize
 Använda git i 
 \begin_inset Quotes eld
@@ -295,6 +280,36 @@ Egen fördjupning vid behov
 \end_layout
 
 \end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Syfte
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Hur versionhanterar ni idag?
+\end_layout
+
+\begin_layout Itemize
+Om ni samarbetar flera i samma projekt? 
+\end_layout
+
+\begin_layout Itemize
+Om ni ändrar i varandras kod?
+\end_layout
+
 \end_deeper
 \begin_layout Separator
 
@@ -349,7 +364,7 @@ Varför versionhantera?
 
 \begin_deeper
 \begin_layout Itemize
-Samarbete i samma projekt
+Samarbete i samma projekt, i samma kod
 \end_layout
 
 \begin_deeper
@@ -379,7 +394,7 @@ Spara olika versioner
 
 \end_deeper
 \begin_layout Itemize
-Spårbarhet (kod och data)
+Spårbarhet (av kod och data)
 \end_layout
 
 \begin_deeper
@@ -389,7 +404,7 @@ Spårbarhet (kod och data)
 
 \end_deeper
 \begin_layout Itemize
-Kodsäkerhet - best practice vid vetenskaplig programmering
+Best practice
 \end_layout
 
 \end_deeper
@@ -494,6 +509,16 @@ Versionshanteringssystem
 
 \end_deeper
 \begin_layout Itemize
+Skapades 2005 för Linux
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
 Distribuerat och lokalt
 \end_layout
 
@@ -505,26 +530,7 @@ Distribuerat och lokalt
 \end_deeper
 \begin_layout Itemize
 Kommandoradbaserat men...
-\end_layout
-
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-SourceTree (eller R-Studio) gör livet lättare
-\end_layout
-
-\begin_deeper
-\begin_layout Pause
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Skapades 2005 för Linux
+ SourceTree (eller R-Studio) gör livet lättare
 \end_layout
 
 \begin_deeper
@@ -544,7 +550,7 @@ Passar stora och små projekt
 
 \end_deeper
 \begin_layout Itemize
-Standard för dataanalys och statistisk programmering (?) 
+På väg att bli standard för dataanalys och statistisk programmering
 \end_layout
 
 \end_deeper
@@ -577,7 +583,17 @@ Varför git?
 
 \end_deeper
 \begin_layout Itemize
-Kan användas isolerat av enskilda medarbetare
+Kan användas av enskilda medarbetare
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Påverkar inte mappstrukturer och filer
 \end_layout
 
 \begin_deeper
@@ -617,7 +633,7 @@ Snabbt
 
 \end_deeper
 \begin_layout Itemize
-Säkert
+Säkert/moget
 \end_layout
 
 \begin_deeper
@@ -666,6 +682,16 @@ Vad är git remote?
 \begin_layout Itemize
 Central lagring av versionshanterad kod, data m.m.
  
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Distribuera kod mellan datorer
 \end_layout
 
 \begin_deeper
@@ -728,7 +754,7 @@ Underlättar samarbeten (kraftigt)
 
 \end_deeper
 \begin_layout Itemize
-Distribuera kode mellan datorer
+Distribuera kod mellan datorer
 \end_layout
 
 \begin_deeper
@@ -1032,26 +1058,13 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status collapsed
+status open
 
 \begin_layout Itemize
-En fryst förändring/miniversion i repot
+En fryst förändring/miniversion i repot: Tillagda filer, förändrade filer
+ och borttagna filer
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-Tillagda filer
-\end_layout
-
-\begin_layout Itemize
-Förändrade filer
-\end_layout
-
-\begin_layout Itemize
-Borttagna filer
-\end_layout
-
-\end_deeper
 \begin_layout Itemize
 Atomerna i git - Minsta möjliga 
 \begin_inset Quotes eld
@@ -1065,11 +1078,13 @@ klar
 \end_layout
 
 \begin_layout Itemize
-Innehåller: namn, meddelande, tid och hash
-\end_layout
-
-\begin_layout Itemize
-Flera commits skapar vår history/repot
+Innehåller: namn, 
+\series bold
+meddelande
+\series default
+, tid och 
+\series bold
+hash
 \end_layout
 
 \end_inset
@@ -1121,7 +1136,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Branch Kommentarer
-status collapsed
+status open
 
 \begin_layout Itemize
 Varje fil som berörs i en kommit sparas ned som fryst bild av filen
